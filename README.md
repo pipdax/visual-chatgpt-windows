@@ -49,6 +49,9 @@ conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit
 #  prepare the basic environments
 pip install -r requirement.txt
 
+# fix the errors I met
+pip install -U cchardet,chardet
+
 # Clone ControlNet
 git clone https://github.com/lllyasviel/ControlNet.git
 
@@ -58,7 +61,8 @@ mklink /D cldm ControlNet\cldm
 mklink /D annotator ControlNet\annotator
 ```
 
-download the visual foundation models and put it in `ControlNet/models`
+download the visual foundation models and put it in `ControlNet/models`.
+The method is paste the following url to browser, and then download.
 
 - https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth
 - https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth
@@ -82,7 +86,7 @@ python visual_chatgpt.py
 
 ## TIPS
 
-If you only have one graphics card, please find the code `cuda:x` in `visual_chatgpt.py`, and replace all of them to read `cuda:0`. 
+If you only have one graphics card, please find the code `cuda:x` in `visual_chatgpt.py`(cuda:x x is 4,8...), and replace all of them to read `cuda:0`. 
 
 This version has been replaced.
 
@@ -106,7 +110,8 @@ Here we list the GPU memory usage of each visual foundation model, one can modif
 | normal2image           | 3974              |
 | InstructPix2Pix        | 2795              |
 
-
+## TODO
+There is still some errors, need to fix.
 
 ## Acknowledgement
 
